@@ -33,5 +33,6 @@ module D317anos
     config.api_only = true
 
     config.logger = Logger.new(STDOUT)
+    config.logger.auto_flushing = 1
   end
 end
