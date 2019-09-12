@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'json'
+
+guests = JSON.parse(File.read('db/seeds/guests.json'))
+
+for guest_obj in guests do
+  guest = Guest.find_or_create_by(email: guest_obj[:email])
+  guest.update(guest_obj)
+end
