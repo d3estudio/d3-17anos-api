@@ -20,7 +20,7 @@ class CheckinJob < ApplicationJob
     @redis.psubscribe CHANNEL do |on|
       on.pmessage do |pattern, event, data|
         puts 'received checkin'
-        puts data.s
+        puts data.to_s
       end
     end
 
