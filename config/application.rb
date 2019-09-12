@@ -33,6 +33,7 @@ module D317anos
     config.api_only = true
 
     config.logger = Logger.new(STDOUT)
-    config.logger.auto_flushing = 1
+    config.logger.level = Logger::DEBUG
+    config.logger.datetime_format = "%Y-%m-%d %H:%M:%S"
   end
 end
