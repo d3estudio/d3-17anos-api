@@ -11,6 +11,8 @@ class CheckinChannel < ApplicationCable::Channel
 
   def self.notify_checkin(checkin)
     ActionCable.server.broadcast(CHANNEL, {
+      id: checkin.guest.id,
+      slug: checkin.guest.slug,
       nickname: checkin.guest.nickname,
       picture: checkin.guest.picture,
       visitedAt: checkin.visited_at

@@ -9,6 +9,8 @@ RSpec.describe Checkin, type: :model do
     expect{
       Checkin.create(guest: guest, created_at: datetime)
     }.to broadcast_to("checkin").from_channel(CheckinChannel).with({
+      id: guest.id,
+      slug: guest.slug,
       nickname: guest.nickname,
       picture: guest.picture,
       visitedAt: datetime.utc.iso8601,
