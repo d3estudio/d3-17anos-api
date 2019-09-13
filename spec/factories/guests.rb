@@ -8,7 +8,7 @@ FactoryBot.define do
     tag_nfc { "04:78:3C:82:58:49:80" }
     description { "Gosta de suco de limão" }
     greeting { "Opa" }
-    bond { "member" }
+    bond { "Funcionário" }
     address { "Rua São Jorge" }
     address_number { "604" }
     address_complement { "apt 86 bloco B" }

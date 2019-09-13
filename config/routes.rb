@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   defaults format: :json do
     resources :guests, only: [:index]
+    resources :checkins, only: [:index]
   end
 end
