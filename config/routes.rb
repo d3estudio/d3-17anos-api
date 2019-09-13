@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   defaults format: :json do
     resources :guests, only: [:index]
-    resources :checkins, only: [:index]
+    resources :checkins, only: [:index] do
+      get 'create/:slug', action: :create, on: :collection
+    end
   end
 end

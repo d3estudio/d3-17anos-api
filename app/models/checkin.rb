@@ -12,11 +12,11 @@ class Checkin < ApplicationRecord
     self.create(guest: guest, seq: sequence)
   end
 
-  def self.create_from_email(email)
-    guest = Guest.find_by(email: email)
-    guest = Guest.find_by(slug: email) unless guest
+  def self.create_from_slug(slug)
+    guest = Guest.find_by(slug: slug)
+    guest = Guest.where("email LIKE ?", "#{slug}%").first unless guest
     return nil unless guest
-    self.create(guest: guest)
+    guest = self.create(guest: guest)
   end
 
   private

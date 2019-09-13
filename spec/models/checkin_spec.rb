@@ -16,4 +16,10 @@ RSpec.describe Checkin, type: :model do
       visitedAt: datetime.utc.iso8601,
     })
   end
+
+  it "broadcasts on email" do
+    expect{
+      Checkin.create_from_slug(guest.email)
+    }.to broadcast_to("checkin").from_channel(CheckinChannel)
+  end
 end
