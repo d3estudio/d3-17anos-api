@@ -31,9 +31,5 @@ module D317anos
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
-
-    config.logger = Logger.new(STDOUT)
-    config.logger.level = Logger::DEBUG
-    config.logger.datetime_format = "%Y-%m-%d %H:%M:%S"
   end
 end

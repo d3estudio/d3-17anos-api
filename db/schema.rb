@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_11_213409) do
+ActiveRecord::Schema.define(version: 2019_09_13_032413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "checkins", force: :cascade do |t|
+    t.bigint "guest_id"
+    t.integer "seq"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guest_id"], name: "index_checkins_on_guest_id"
+  end
 
   create_table "guests", force: :cascade do |t|
     t.string "slug"
@@ -40,4 +48,5 @@ ActiveRecord::Schema.define(version: 2019_09_11_213409) do
     t.index ["tag_nfc"], name: "index_guests_on_tag_nfc", unique: true
   end
 
+  add_foreign_key "checkins", "guests"
 end
