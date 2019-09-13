@@ -1,5 +1,12 @@
 class Guest < ApplicationRecord
-  enum bond: [ :member, :partner, :client, :escort ]
+  enum bond: [
+    "Funcionário",
+    "Ex-funcionário",
+    "Parceiro",
+    "Cliente",
+    "Ex-cliente",
+    "Amigo",
+  ]
 
   has_many :checkins
 

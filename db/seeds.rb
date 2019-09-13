@@ -11,6 +11,7 @@ require 'json'
 guests = JSON.parse(File.read('db/seeds/guests.json'))
 
 for guest_obj in guests do
-  guest = Guest.find_or_create_by(email: guest_obj[:email])
+  puts guest_obj["slug"]
+  guest = Guest.find_or_create_by(slug: guest_obj["slug"])
   guest.update(guest_obj)
 end
