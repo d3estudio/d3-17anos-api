@@ -9,6 +9,7 @@ class CheckinsController < ApplicationController
     if not checkin then
       return render json: { success: false, error: 'Not Found'}
     end
+    expires_now
     render json: { success: true }
   end
 end
