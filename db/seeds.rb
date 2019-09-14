@@ -12,6 +12,7 @@ guests = JSON.parse(File.read('db/seeds/guests.json'))
 
 for guest_obj in guests do
   puts guest_obj["slug"]
+  guest_obj["bond"] = "Acompanhante" if guest_obj["bond"].nil?
   guest = Guest.find_or_create_by(slug: guest_obj["slug"])
   guest.update(guest_obj)
 end

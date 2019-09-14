@@ -8,6 +8,7 @@ class Guest < ApplicationRecord
     "Cliente",
     "Ex-cliente",
     "Amigo",
+    "Acompanhante",
   ]
 
   has_many :checkins
