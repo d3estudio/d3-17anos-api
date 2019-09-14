@@ -12,4 +12,9 @@ RSpec.describe Guest, type: :model do
         "Amigo",
       ])
   end
+
+  it 'purifies tag' do
+    guest = create(:guest, tag_nfc: "04:A0:3a:82:58:49:80")
+    expect(guest.tag_nfc).to eq "04A03A82584980"
+  end
 end

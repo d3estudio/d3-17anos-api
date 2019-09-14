@@ -1,4 +1,6 @@
 class Guest < ApplicationRecord
+  before_validation :set_defaults
+
   enum bond: [
     "Funcionário",
     "Ex-funcionário",
@@ -12,5 +14,11 @@ class Guest < ApplicationRecord
 
   def picture
     self.slug
+  end
+
+  private
+
+  def set_defaults
+    self.tag_nfc = self.tag_nfc.gsub(":", '').upcase()
   end
 end
