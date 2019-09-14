@@ -7,7 +7,7 @@ class Checkin < ApplicationRecord
   end
 
   def self.create_from_tag(tag, sequence)
-    guest = Guest.find_by(tag: tag.upcase())
+    guest = Guest.find_by(tag_nfc: tag.upcase())
     return nil unless guest
     self.create(guest: guest, seq: sequence)
   end
