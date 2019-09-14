@@ -17,6 +17,8 @@ class Guest < ApplicationRecord
   end
 
   def time_with
+    return nil unless self.joined_at
+
     seconds_per_month = 60 * 60 * 24 * 30
     months = (self.joined_at - DateTime.now) / seconds_per_month
     months = months.abs.floor
