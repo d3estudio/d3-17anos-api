@@ -19,6 +19,6 @@ class Guest < ApplicationRecord
   private
 
   def set_defaults
-    self.tag_nfc = self.tag_nfc.gsub(":", '').upcase()
+    self.tag_nfc = self.tag_nfc.gsub(":", '').upcase() if self.tag_nfc.present?
   end
 end
