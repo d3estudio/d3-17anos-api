@@ -15,7 +15,6 @@ class CheckinJob < ApplicationJob
 
   def perform(*args)
     Rails.logger.info '[CHECKIN] initializing job'
-    
 
     @redis.psubscribe CHANNEL do |on|
       on.pmessage do |pattern, event, data|
@@ -30,7 +29,13 @@ class CheckinJob < ApplicationJob
           Rails.logger.info '[CHECKIN] tag: ' + tag
           Rails.logger.info '[CHECKIN] sequence: ' + sequence.to_s
 
-          Checkin.create_from_tag(tag, sequence)
+          guest = Checkin.create_from_tag(tag, sequence)
+
+          if guest then
+            Rails.logger.info '[CHECKIN] user: ' + guest.slug
+          else
+            Rails.logger.info '[CHECKIN] user not found!'
+          end
         end
       end
     end
