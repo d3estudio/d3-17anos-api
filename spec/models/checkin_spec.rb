@@ -17,9 +17,9 @@ RSpec.describe Checkin, type: :model do
     })
   end
 
-  it "broadcasts on email" do
+  it "broadcasts on slug" do
     expect{
-      Checkin.create_from_slug(guest.email)
+      Checkin.create_from_slug(guest.slug)
     }.to broadcast_to("checkin").from_channel(CheckinChannel)
   end
 end

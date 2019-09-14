@@ -14,7 +14,6 @@ class Checkin < ApplicationRecord
 
   def self.create_from_slug(slug)
     guest = Guest.find_by(slug: slug)
-    guest = Guest.where("email LIKE ?", "#{slug}%").first unless guest
     return nil unless guest
     guest = self.create(guest: guest)
   end
