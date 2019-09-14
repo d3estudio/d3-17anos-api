@@ -28,7 +28,7 @@ class CheckinJob < ApplicationJob
           sequence = payload["sq"]
 
           Rails.logger.info '[CHECKIN] tag: ' + tag
-          Rails.logger.info '[CHECKIN] sequence: ' + sequence
+          Rails.logger.info '[CHECKIN] sequence: ' + sequence.to_s
 
           Checkin.create_from_tag(tag, sequence)
         end
