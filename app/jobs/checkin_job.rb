@@ -20,11 +20,11 @@ class CheckinJob < ApplicationJob
     @redis.psubscribe CHANNEL do |on|
       on.pmessage do |pattern, event, data|
         Rails.logger.info '[CHECKIN] new message'
-        payload = JSON.parse data
+        payload = JSON.parse(data)
         type = payload["c"]
 
         if type == READ_TYPE then
-          tag = payload["p"]
+          tag = payload["p"][1]
           sequence = payload["sq"]
 
           Rails.logger.info '[CHECKIN] tag: ' + tag
