@@ -29,10 +29,10 @@ class CheckinJob < ApplicationJob
           Rails.logger.info '[CHECKIN] tag: ' + tag
           Rails.logger.info '[CHECKIN] sequence: ' + sequence.to_s
 
-          guest = Checkin.create_from_tag(tag, sequence)
+          checkin = Checkin.create_from_tag(tag, sequence)
 
-          if guest then
-            Rails.logger.info '[CHECKIN] user: ' + guest.slug
+          if checkin then
+            Rails.logger.info '[CHECKIN] user: ' + checkin.guest.slug
           else
             Rails.logger.info '[CHECKIN] user not found!'
           end
