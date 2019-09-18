@@ -25,16 +25,16 @@ RSpec.describe CheckinsController, type: :request do
     expect(checkins.first["picture"]).to eq checkin.guest.picture
   end
 
-  it "create guests" do
-    get "/checkins/create/" + checkin.guest.slug
+  # it "create guests" do
+  #   get "/checkins/create/" + checkin.guest.slug
 
-    expect(response.content_type).to eq "application/json"
-    expect(response).to have_http_status :success
-  end
+  #   expect(response.content_type).to eq "application/json"
+  #   expect(response).to have_http_status :success
+  # end
 
-  it "broadcasts on email" do
-    expect{
-      get "/checkins/create/" + checkin.guest.slug
-    }.to broadcast_to("checkin").from_channel(CheckinChannel)
-  end
+  # it "broadcasts on email" do
+  #   expect{
+  #     get "/checkins/create/" + checkin.guest.slug
+  #   }.to broadcast_to("checkin").from_channel(CheckinChannel)
+  # end
 end

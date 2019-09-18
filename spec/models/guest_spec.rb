@@ -10,6 +10,7 @@ RSpec.describe Guest, type: :model do
         "Cliente",
         "Ex-cliente",
         "Amigo",
+        "Acompanhante"
       ])
   end
 
