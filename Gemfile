@@ -31,6 +31,8 @@ gem 'shoulda-matchers'
 
 gem 'factory_bot_rails'
 
+gem 'geocoder'
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 

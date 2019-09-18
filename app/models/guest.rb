@@ -1,4 +1,7 @@
 class Guest < ApplicationRecord
+  geocoded_by :full_address
+  after_validation :geocode
+
   before_validation :set_defaults
 
   enum bond: [
@@ -15,6 +18,10 @@ class Guest < ApplicationRecord
 
   def picture
     self.slug
+  end
+
+  def full_address
+    [address, address_number, zip, city, state, "Brasil"].compact.join(', ')
   end
 
   def time_with

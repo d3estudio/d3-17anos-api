@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_13_032413) do
+ActiveRecord::Schema.define(version: 2019_09_18_171357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2019_09_13_032413) do
     t.datetime "left_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "latitude"
+    t.decimal "longitude"
     t.index ["slug"], name: "index_guests_on_slug", unique: true
     t.index ["tag_nfc"], name: "index_guests_on_tag_nfc", unique: true
   end
