@@ -21,7 +21,7 @@ class Guest < ApplicationRecord
   end
 
   def full_address
-    [address, address_number, zip, city, state, "Brasil"].compact.join(', ')
+    [address, zip, city, state, "Brasil"].compact.join(', ')
   end
 
   def time_with
