@@ -27,10 +27,6 @@ RSpec.describe GuestsController, type: :request do
     expect(guests.first["description"]).to eq guest.description
     expect(guests.first["greeting"]).to eq guest.greeting
     expect(guests.first["bond"]).to eq guest.bond
-    expect(guests.first["address"]).to eq guest.address
-    expect(guests.first["addressNumber"]).to eq guest.address_number
-    expect(guests.first["addressComplement"]).to eq guest.address_complement
-    expect(guests.first["zip"]).to eq guest.zip
     expect(guests.first["city"]).to eq guest.city
     expect(guests.first["state"]).to eq guest.state
     expect(guests.first["latitude"]).to eq guest.latitude.to_s
