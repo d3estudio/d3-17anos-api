@@ -1,2 +1,2 @@
 
-CheckinJob.perform_later
+# CheckinJob.perform_later
