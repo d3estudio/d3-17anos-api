@@ -41,6 +41,11 @@ class Guest < ApplicationRecord
     return "#{years} ANO"
   end
 
+  def year_with
+    return nil unless self.joined_at
+    self.joined_at.year
+  end
+
   private
 
   def set_defaults

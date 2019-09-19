@@ -31,5 +31,7 @@ RSpec.describe GuestsController, type: :request do
     expect(guests.first["state"]).to eq guest.state
     expect(guests.first["latitude"]).to eq guest.latitude.to_s
     expect(guests.first["longitude"]).to eq guest.longitude.to_s
+    expect(guests.first["timeWith"]).to eq guest.time_with
+    expect(guests.first["yearWith"]).to eq guest.year_with
   end
 end
