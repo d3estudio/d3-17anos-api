@@ -6,6 +6,7 @@ test:
   adapter: test
 
 production:
-  adapter: redis
-  url: <%= Rails.application.credentials.fetch(:redis_url) { "redis://localhost:6379/1" } %>
-  channel_prefix: d317anos_production
+  adapter: async
+  # adapter: redis
+  # url: <%= Rails.application.credentials.fetch(:redis_url) { "redis://localhost:6379/1" } %>
+  # channel_prefix: d317anos_production
