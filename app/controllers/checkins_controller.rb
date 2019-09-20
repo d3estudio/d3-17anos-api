@@ -1,6 +1,6 @@
 class CheckinsController < ApplicationController
   def index
-    @checkins = Checkin.order(created_at: :asc)
+    @checkins = Checkin.order(created_at: :asc).distinct(:guest_id)
   end
 
   def create
