@@ -1,0 +1,21 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - aws --version
+      - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+      - REPOSITORY_URI=929907635541.dkr.ecr.us-east-1.amazonaws.com/d3-17anos-api
+  install:
+    runtime-versions:
+      docker: 18
+  build:
+    commands:
+      - echo [Started]
+      - docker build -t $REPOSITORY_URI:$HASH . 
+  post_build:
+    commands:
+      - docker push $REPOSITORY_URI:$HASH
+      - echo [Completed]
+artifacts:
+  files:
+    - 'Dockerfile'
