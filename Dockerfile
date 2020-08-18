@@ -3,7 +3,7 @@ FROM ruby:2.6.3-alpine
 ENV FOLDER=/app \
   RACK_ENV=production \
   RAILS_ENV=production \
-  PORT=80 \
+  PORT=3000 \
   RAILS_LOG_TO_STDOUT=true \
   BUNDLER_VERSION=2.0.2
 # ENV BUILD_PACKAGES curl-dev ruby-dev build-base
